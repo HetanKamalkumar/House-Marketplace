@@ -1,9 +1,7 @@
-import { useNavigate, useLocation } from "react-router-dom"
-import {ReactComponent as OfferIcon} from '../assets/svg/localOfferIcon.svg'
-import {ReactComponent as ExploreIcon} from '../assets/svg/exploreIcon.svg'
-import {ReactComponent as PersonOutlineIcon} from '../assets/svg/personOutlineIcon.svg'
-
-
+import { NavLink } from "react-router-dom";
+import { ReactComponent as OfferIcon } from '../assets/svg/localOfferIcon.svg';
+import { ReactComponent as ExploreIcon } from '../assets/svg/exploreIcon.svg';
+import { ReactComponent as PersonOutlineIcon } from '../assets/svg/personOutlineIcon.svg';
 
 function Navbar() {
   return (
@@ -11,20 +9,56 @@ function Navbar() {
       <nav className="navbarNav">
         <ul className="navbarListItems">
           <li className="navbarListItem">
-            <ExploreIcon fill="#2c2c2c" width='36px' height='36px' />
-            <p>Explore</p>
+            <NavLink 
+              to="/" 
+              className={({ isActive }) => 
+                isActive ? "navbarListItemActive" : "navbarListItemName"
+              }
+            >
+              <ExploreIcon 
+                fill={({ isActive }) => (isActive ? "#2c2c2c" : "#8f8f8f")} 
+                width="36px" 
+                height="36px" 
+              />
+              <p>Explore</p>
+            </NavLink>
           </li>
           <li className="navbarListItem">
-            <OfferIcon fill="#2c2c2c" width='36px' height='36px' />
-            <p>Offer</p>
+            <NavLink 
+              to="/offers" 
+              className={({ isActive }) => 
+                isActive ? "navbarListItemActive" : "navbarListItemName"
+              }
+            >
+              <OfferIcon 
+                fill={({ isActive }) => (isActive ? "#2c2c2c" : "#8f8f8f")} 
+                width="36px" 
+                height="36px" 
+              />
+              <p>Offer</p>
+            </NavLink>
           </li>
           <li className="navbarListItem">
-            <PersonOutlineIcon fill="#2c2c2c" width='36px' height='36px' />
-            <p>Profile</p>
+            <NavLink 
+              to="/profile" 
+              className={({ isActive }) => 
+                isActive ? "navbarListItemActive" : "navbarListItemName"
+              }
+            >
+              <PersonOutlineIcon 
+                fill={({ isActive }) => (isActive ? "#2c2c2c" : "#8f8f8f")} 
+                width="36px" 
+                height="36px" 
+              />
+              <p>Profile</p>
+            </NavLink>
           </li>
         </ul>
       </nav>
     </footer>
-  )
+  );
 }
-export default Navbar
+
+export default Navbar;
+
+
