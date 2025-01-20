@@ -15,12 +15,16 @@ function Navbar() {
                 isActive ? "navbarListItemActive" : "navbarListItemName"
               }
             >
-              <ExploreIcon 
-                fill={({ isActive }) => (isActive ? "#2c2c2c" : "#8f8f8f")} 
-                width="36px" 
-                height="36px" 
-              />
-              <p>Explore</p>
+              {({ isActive }) => (
+                <>
+                  <ExploreIcon 
+                    style={{ fill: isActive ? "#2c2c2c" : "#8f8f8f" }} 
+                    width="36px" 
+                    height="36px" 
+                  />
+                  <p>Explore</p>
+                </>
+              )}
             </NavLink>
           </li>
           <li className="navbarListItem">
@@ -30,12 +34,16 @@ function Navbar() {
                 isActive ? "navbarListItemActive" : "navbarListItemName"
               }
             >
-              <OfferIcon 
-                fill={({ isActive }) => (isActive ? "#2c2c2c" : "#8f8f8f")} 
-                width="36px" 
-                height="36px" 
-              />
-              <p>Offer</p>
+              {({ isActive }) => (
+                <>
+                  <OfferIcon 
+                    style={{ fill: isActive ? "#2c2c2c" : "#8f8f8f" }} 
+                    width="36px" 
+                    height="36px" 
+                  />
+                  <p>Offer</p>
+                </>
+              )}
             </NavLink>
           </li>
           <li className="navbarListItem">
@@ -45,12 +53,16 @@ function Navbar() {
                 isActive ? "navbarListItemActive" : "navbarListItemName"
               }
             >
-              <PersonOutlineIcon 
-                fill={({ isActive }) => (isActive ? "#2c2c2c" : "#8f8f8f")} 
-                width="36px" 
-                height="36px" 
-              />
-              <p>Profile</p>
+              {({ isActive }) => (
+                <>
+                  <PersonOutlineIcon 
+                    style={{ fill: isActive ? "#2c2c2c" : "#8f8f8f" }} 
+                    width="36px" 
+                    height="36px" 
+                  />
+                  <p>Profile</p>
+                </>
+              )}
             </NavLink>
           </li>
         </ul>
@@ -60,5 +72,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
