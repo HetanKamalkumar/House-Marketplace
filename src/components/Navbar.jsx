@@ -41,7 +41,7 @@ function Navbar() {
                     width="36px" 
                     height="36px" 
                   />
-                  <p>Offer</p>
+                  <p>Offers</p>
                 </>
               )}
             </NavLink>
