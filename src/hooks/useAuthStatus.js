@@ -1,27 +1,24 @@
-import { useEffect, useState } from 'react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { useEffect, useState } from 'react';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export const useAuthStatus = () => {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [checkingStatus, setCheckingStatus] = useState(true)
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [checkingStatus, setCheckingStatus] = useState(true);
 
   useEffect(() => {
-    const auth = getAuth()
+    const auth = getAuth();
 
-    // Set up the auth state listener
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setLoggedIn(true)
+        setLoggedIn(true); // User is logged in
       } else {
-        setLoggedIn(false)
+        setLoggedIn(false); // No user logged in
       }
-      setCheckingStatus(false) // Finished checking status
-    })
+      setCheckingStatus(false); // Firebase auth state has been checked
+    });
 
-    // Cleanup listener when the component unmounts
-    return () => unsubscribe()
+    return () => unsubscribe();
+  }, []);
 
-  }, []) // Empty dependency array ensures the effect runs only once on mount
-
-  return { loggedIn, checkingStatus }
-}
+  return { loggedIn, checkingStatus };
+};
