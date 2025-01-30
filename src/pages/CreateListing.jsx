@@ -17,6 +17,7 @@ import { db } from "../firebase.config"
 function CreateListing() {
 
   const [loading, setLoading] = useState(false)
+  // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(true)
   const [formData, setFormData] = useState({
     type: 'rent',
@@ -101,6 +102,7 @@ function CreateListing() {
 
     geolocation.lat = parseFloat(data[0].lat) || 0;
     geolocation.lng = parseFloat(data[0].lon) || 0;
+    // eslint-disable-next-line
     location = data[0].display_name;
   } else {
     // If geolocation is disabled, check if latitude and longitude are manually provided
